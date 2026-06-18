@@ -1,0 +1,9 @@
+{
+  "appId": "com.tribu13.app",
+  "appName": "Tribu 13",
+  "webDir": "www",
+  "server": {
+    "url": "https://tribu13.wandari.com",
+    "cleartext": false
+  }
+}

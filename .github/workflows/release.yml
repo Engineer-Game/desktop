@@ -115,3 +115,57 @@ jobs:
           releaseDraft: true
           prerelease: false
           args: ${{ matrix.args }}
+
+  build-android:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - app: laisladeltrading-android
+            apkName: La.Isla.del.Trading
+          - app: learn-android
+            apkName: Engineer.Game
+          - app: tribu13-android
+            apkName: Tribu.13
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: temurin
+
+      - name: Install deps
+        working-directory: apps/${{ matrix.app }}
+        run: npm install
+
+      - name: Add Android platform
+        working-directory: apps/${{ matrix.app }}
+        run: npx cap add android
+
+      - name: Build APK
+        working-directory: apps/${{ matrix.app }}/android
+        run: ./gradlew assembleRelease
+
+      - name: Rename APK
+        run: |
+          VERSION=$(node -p "require('./apps/${{ matrix.app }}/package.json').version")
+          cp apps/${{ matrix.app }}/android/app/build/outputs/apk/release/app-release-unsigned.apk \
+             ${{ matrix.apkName }}_${VERSION}.apk
+
+      - name: Upload APK to Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          draft: true
+          files: ${{ matrix.apkName }}_*.apk
