@@ -1,0 +1,21 @@
+[package]
+name = "laisladeltrading"
+version = "1.0.0"
+edition = "2021"
+
+[lib]
+name = "laisladeltrading_lib"
+crate-type = ["lib", "cdylib", "staticlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+opt-level = "s"
+strip = true

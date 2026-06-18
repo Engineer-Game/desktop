@@ -1,0 +1,9 @@
+node_modules/
+target/
+dist/
+gen/
+*.dmg
+*.msi
+*.AppImage
+*.deb
+*.rpm
