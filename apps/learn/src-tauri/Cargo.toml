@@ -1,10 +1,10 @@
 [package]
-name = "laisladeltrading"
-version = "1.0.0"
+name = "engineer-game"
+version = "1.0.1"
 edition = "2021"
 
 [lib]
-name = "laisladeltrading_lib"
+name = "engineer_game_lib"
 crate-type = ["lib", "cdylib", "staticlib"]
 
 [build-dependencies]

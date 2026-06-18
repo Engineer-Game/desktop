@@ -1,10 +1,10 @@
 [package]
-name = "laisladeltrading"
-version = "1.0.0"
+name = "tribu13"
+version = "1.0.1"
 edition = "2021"
 
 [lib]
-name = "laisladeltrading_lib"
+name = "tribu13_lib"
 crate-type = ["lib", "cdylib", "staticlib"]
 
 [build-dependencies]
