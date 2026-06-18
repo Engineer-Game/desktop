@@ -169,3 +169,67 @@ jobs:
           tag_name: ${{ github.ref_name }}
           draft: true
           files: ${{ matrix.apkName }}_*.apk
+
+  build-ios:
+    permissions:
+      contents: write
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - app: laisladeltrading-ios
+            ipaName: La.Isla.del.Trading
+            scheme: App
+          - app: learn-ios
+            ipaName: Engineer.Game
+            scheme: App
+          - app: tribu13-ios
+            ipaName: Tribu.13
+            scheme: App
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install deps
+        working-directory: apps/${{ matrix.app }}
+        run: npm install
+
+      - name: Add iOS platform
+        working-directory: apps/${{ matrix.app }}
+        run: npx cap add ios
+
+      - name: Build unsigned archive
+        working-directory: apps/${{ matrix.app }}
+        run: |
+          xcodebuild -workspace ios/App/App.xcworkspace \
+            -scheme ${{ matrix.scheme }} \
+            -sdk iphoneos \
+            -configuration Release \
+            -archivePath $PWD/build/App.xcarchive \
+            archive \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            DEVELOPMENT_TEAM=""
+
+      - name: Package IPA
+        working-directory: apps/${{ matrix.app }}
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          mkdir -p Payload
+          cp -r build/App.xcarchive/Products/Applications/App.app Payload/
+          zip -r ${{ matrix.ipaName }}_${VERSION}.ipa Payload/
+          mv ${{ matrix.ipaName }}_${VERSION}.ipa ../../
+
+      - name: Upload IPA to Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          draft: true
+          files: ${{ matrix.ipaName }}_*.ipa

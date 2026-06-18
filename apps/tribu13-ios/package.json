@@ -1,0 +1,8 @@
+{
+  "name": "tribu13-ios",
+  "version": "1.0.1",
+  "dependencies": {
+    "@capacitor/ios": "^6.0.0",
+    "@capacitor/core": "^6.0.0"
+  }
+}
