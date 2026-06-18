@@ -35,11 +35,39 @@ jobs:
           - app: laisladeltrading
             platform: ubuntu-22.04
             args: ''
+          # learn (Engineer Game) — Mac Apple Silicon
+          - app: learn
+            platform: macos-latest
+            args: '--target aarch64-apple-darwin'
+          # learn — Mac Intel
+          - app: learn
+            platform: macos-latest
+            args: '--target x86_64-apple-darwin'
+          # learn — Windows
+          - app: learn
+            platform: windows-latest
+            args: ''
+          # learn — Linux
+          - app: learn
+            platform: ubuntu-22.04
+            args: ''
+          # tribu13 — Mac Apple Silicon
+          - app: tribu13
+            platform: macos-latest
+            args: '--target aarch64-apple-darwin'
+          # tribu13 — Mac Intel
+          - app: tribu13
+            platform: macos-latest
+            args: '--target x86_64-apple-darwin'
+          # tribu13 — Windows
+          - app: tribu13
+            platform: windows-latest
+            args: ''
+          # tribu13 — Linux
+          - app: tribu13
+            platform: ubuntu-22.04
+            args: ''
           # ── Add new community below (4 lines per community) ──────────────
-          # - app: nuevacomunidad
-          #   platform: macos-latest
-          #   args: '--target aarch64-apple-darwin'
-          # (repeat for x86_64, windows-latest, ubuntu-22.04)
 
     runs-on: ${{ matrix.platform }}
 
@@ -81,7 +109,9 @@ jobs:
 
             | App | Mac (Apple Silicon) | Mac (Intel) | Windows | Linux |
             |-----|---------------------|-------------|---------|-------|
-            | La Isla del Trading | `*_aarch64.dmg` | `*_x64.dmg` | `*.msi` | `*.AppImage` |
+            | La Isla del Trading | `La Isla del Trading_*_aarch64.dmg` | `La Isla del Trading_*_x64.dmg` | `La Isla del Trading_*.msi` | `la-isla-del-trading_*.AppImage` |
+            | Engineer Game | `Engineer Game_*_aarch64.dmg` | `Engineer Game_*_x64.dmg` | `Engineer Game_*.msi` | `engineer-game_*.AppImage` |
+            | Tribu 13 | `Tribu 13_*_aarch64.dmg` | `Tribu 13_*_x64.dmg` | `Tribu 13_*.msi` | `tribu-13_*.AppImage` |
           releaseDraft: true
           prerelease: false
           args: ${{ matrix.args }}
