@@ -4,8 +4,8 @@
   "version": "1.0.1",
   "identifier": "com.tribu13.desktop",
   "build": {
-    "devUrl": "https://tribu13.wandari.com",
-    "frontendDist": "https://tribu13.wandari.com"
+    "devUrl": "https://tribu13.wandari.com/login",
+    "frontendDist": "https://tribu13.wandari.com/login"
   },
   "app": {
     "withGlobalTauri": false,
@@ -13,7 +13,7 @@
       {
         "label": "main",
         "title": "Tribu 13",
-        "url": "https://tribu13.wandari.com",
+        "url": "https://tribu13.wandari.com/login",
         "width": 1280,
         "height": 800,
         "minWidth": 800,

@@ -4,8 +4,8 @@
   "version": "1.0.1",
   "identifier": "com.engineergame.desktop",
   "build": {
-    "devUrl": "https://engineergame.com",
-    "frontendDist": "https://engineergame.com"
+    "devUrl": "https://engineergame.com/login",
+    "frontendDist": "https://engineergame.com/login"
   },
   "app": {
     "withGlobalTauri": false,
@@ -13,7 +13,7 @@
       {
         "label": "main",
         "title": "Engineer Game",
-        "url": "https://engineergame.com",
+        "url": "https://engineergame.com/login",
         "width": 1280,
         "height": 800,
         "minWidth": 800,

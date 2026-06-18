@@ -3,7 +3,7 @@
   "appName": "Engineer Game",
   "webDir": "www",
   "server": {
-    "url": "https://engineergame.com",
+    "url": "https://engineergame.com/login",
     "cleartext": false
   }
 }

@@ -3,7 +3,7 @@
   "appName": "Tribu 13",
   "webDir": "www",
   "server": {
-    "url": "https://tribu13.wandari.com",
+    "url": "https://tribu13.wandari.com/login",
     "cleartext": false
   }
 }

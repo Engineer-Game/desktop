@@ -3,7 +3,7 @@
   "appName": "La Isla del Trading",
   "webDir": "www",
   "server": {
-    "url": "https://laisladeltrading.wandari.com",
+    "url": "https://laisladeltrading.wandari.com/login",
     "cleartext": false
   }
 }

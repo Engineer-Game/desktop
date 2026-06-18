@@ -4,8 +4,8 @@
   "version": "1.0.1",
   "identifier": "com.laisladeltrading.desktop",
   "build": {
-    "devUrl": "https://laisladeltrading.wandari.com",
-    "frontendDist": "https://laisladeltrading.wandari.com"
+    "devUrl": "https://laisladeltrading.wandari.com/login",
+    "frontendDist": "https://laisladeltrading.wandari.com/login"
   },
   "app": {
     "withGlobalTauri": false,
@@ -13,7 +13,7 @@
       {
         "label": "main",
         "title": "La Isla del Trading",
-        "url": "https://laisladeltrading.wandari.com",
+        "url": "https://laisladeltrading.wandari.com/login",
         "width": 1280,
         "height": 800,
         "minWidth": 800,
