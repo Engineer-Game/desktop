@@ -151,7 +151,7 @@ jobs:
 
       - name: Add Android platform
         working-directory: apps/${{ matrix.app }}
-        run: npx cap add android
+        run: npx @capacitor/cli add android
 
       - name: Build APK
         working-directory: apps/${{ matrix.app }}/android
@@ -202,7 +202,7 @@ jobs:
 
       - name: Add iOS platform
         working-directory: apps/${{ matrix.app }}
-        run: npx cap add ios
+        run: npx @capacitor/cli add ios
 
       - name: Build unsigned archive
         working-directory: apps/${{ matrix.app }}
