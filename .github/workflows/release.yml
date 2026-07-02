@@ -68,6 +68,22 @@ jobs:
             platform: ubuntu-22.04
             args: ''
           # ── Add new community below (4 lines per community) ──────────────
+          # traderpro — Mac Apple Silicon
+          - app: traderpro
+            platform: macos-latest
+            args: '--target aarch64-apple-darwin'
+          # traderpro — Mac Intel
+          - app: traderpro
+            platform: macos-latest
+            args: '--target x86_64-apple-darwin'
+          # traderpro — Windows
+          - app: traderpro
+            platform: windows-latest
+            args: ''
+          # traderpro — Linux
+          - app: traderpro
+            platform: ubuntu-22.04
+            args: ''
 
     runs-on: ${{ matrix.platform }}
 
@@ -112,6 +128,7 @@ jobs:
             | La Isla del Trading | `La Isla del Trading_*_aarch64.dmg` | `La Isla del Trading_*_x64.dmg` | `La Isla del Trading_*.msi` | `la-isla-del-trading_*.AppImage` |
             | Engineer Game | `Engineer Game_*_aarch64.dmg` | `Engineer Game_*_x64.dmg` | `Engineer Game_*.msi` | `engineer-game_*.AppImage` |
             | Tribu 13 | `Tribu 13_*_aarch64.dmg` | `Tribu 13_*_x64.dmg` | `Tribu 13_*.msi` | `tribu-13_*.AppImage` |
+            | Trader Pro | `Trader Pro_*_aarch64.dmg` | `Trader Pro_*_x64.dmg` | `Trader Pro_*.msi` | `trader-pro_*.AppImage` |
           releaseDraft: true
           prerelease: false
           args: ${{ matrix.args }}
@@ -130,6 +147,8 @@ jobs:
             apkName: Engineer.Game
           - app: tribu13-android
             apkName: Tribu.13
+          - app: traderpro-android
+            apkName: Trader.Pro
 
     steps:
       - uses: actions/checkout@v4
@@ -186,6 +205,9 @@ jobs:
             scheme: App
           - app: tribu13-ios
             ipaName: Tribu.13
+            scheme: App
+          - app: traderpro-ios
+            ipaName: Trader.Pro
             scheme: App
 
     steps:
