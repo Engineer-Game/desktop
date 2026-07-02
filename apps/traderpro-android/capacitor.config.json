@@ -1,0 +1,9 @@
+{
+  "appId": "com.traderpro.app",
+  "appName": "Trader Pro",
+  "webDir": "www",
+  "server": {
+    "url": "https://tradingpro.wandari.com/login",
+    "cleartext": false
+  }
+}

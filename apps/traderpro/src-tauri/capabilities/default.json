@@ -1,0 +1,9 @@
+{
+  "$schema": "https://schema.tauri.app/core/schemas/capabilities/schema.json",
+  "identifier": "default",
+  "description": "Default capabilities for Trader Pro",
+  "windows": ["main"],
+  "permissions": [
+    "core:default"
+  ]
+}
