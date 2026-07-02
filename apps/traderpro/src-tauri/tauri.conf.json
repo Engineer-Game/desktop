@@ -4,8 +4,8 @@
   "version": "1.0.7",
   "identifier": "com.traderpro.desktop",
   "build": {
-    "devUrl": "https://tradingpro.wandari.com/login",
-    "frontendDist": "https://tradingpro.wandari.com/login"
+    "devUrl": "https://traderpro.wandari.com/login",
+    "frontendDist": "https://traderpro.wandari.com/login"
   },
   "app": {
     "withGlobalTauri": false,
@@ -13,7 +13,7 @@
       {
         "label": "main",
         "title": "Trader Pro",
-        "url": "https://tradingpro.wandari.com/login",
+        "url": "https://traderpro.wandari.com/login",
         "width": 1280,
         "height": 800,
         "minWidth": 800,
